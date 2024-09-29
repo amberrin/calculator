@@ -1,0 +1,168 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import *
+
+app = QApplication([])
+
+wind = QWidget()
+wind.setWindowTitle("Вибір")
+wind.resize(225, 300)
+
+windo = QWidget()
+windo.setWindowTitle("Степень")
+windo.resize(225, 300)
+
+window = QWidget()
+window.setWindowTitle("Calculator")
+window.resize(225, 300)
+
+AnsGroupBox = QLabel("Треба нажати на кнопку дії, яку ви хочите виконати")
+AnsGroupBox.setStyleSheet("font-size:14px;text-align:center;")
+lb_Result = QPushButton("Звести до степеня")
+lb_Result.setStyleSheet("font-size:16px")
+lb_Correct = QPushButton("Розрахунок(+,-,*,:)")
+lb_Correct.setStyleSheet("font-size:16px")
+
+
+NameProgramm = QLabel("Треба ввести числа щоб розрахувати")
+NameProgramm.setStyleSheet("font-size:12px;text-align:center;")
+text_1 = QLabel("Введіть перше число:")
+text_2 = QLabel("Введіть дію:")
+text_3 = QLabel("Введіть друге число:")
+a = QLineEdit()
+b = QLineEdit()
+c = QLineEdit()
+Ravno = QPushButton("Розрахувати")
+
+NameProgram = QLabel("Треба ввести числа щоб звести до степеня")
+NameProgram.setStyleSheet("font-size:12px;text-align:center;")
+text_5 = QLabel("Введіть перше число:")
+text_4 = QLabel("Введіть степень:")
+f = QLineEdit()
+k = QLineEdit()
+Ravn = QPushButton("Розрахувати")
+
+window.hide()
+windo.hide()
+
+layout_card = QVBoxLayout()
+layout_card.addWidget(NameProgramm)
+
+layout_line1 = QVBoxLayout()
+layout_line1.addWidget(NameProgramm, alignment = Qt.AlignCenter)
+
+layout_line2 = QHBoxLayout()
+layout_line2.addWidget(text_1, alignment= Qt.AlignCenter)
+layout_line2.addWidget(a, alignment=Qt.AlignLeft)
+
+layout_line3 = QHBoxLayout()
+layout_line3.addWidget(text_2, alignment= Qt.AlignLeft)
+layout_line3.addWidget(b, alignment= Qt.AlignRight)
+
+layout_line4 = QHBoxLayout()
+layout_line4.addWidget(text_3, alignment= Qt.AlignLeft)
+layout_line4.addWidget(c, alignment= Qt.AlignRight)
+
+layout_line5 = QHBoxLayout()
+layout_line5.addWidget(Ravno, alignment= Qt.AlignCenter)
+
+layout_card.addLayout(layout_line1)
+layout_card.addLayout(layout_line2)
+layout_card.addLayout(layout_line3)
+layout_card.addLayout(layout_line4)
+layout_card.addLayout(layout_line5)
+def Ravno1():
+    a_num = int(a.text())     
+    c_num=int(c.text())
+    if b.text()=="+":
+        p=a_num+c_num
+    if b.text()=="-":
+        p=a_num-c_num
+    if b.text()=="/":
+        p=a_num/c_num
+    if b.text()==":":
+        p=a_num/c_num
+    if b.text()=="*":
+        p=a_num*c_num
+    window1 = QMessageBox()
+    window1.setText(str(p))
+    window1.exec_()
+
+def Ravv():
+    a_num = int(f.text())     
+    if k.text()=="2":
+        p=a_num*a_num
+    if k.text()=="3":
+        p=a_num*a_num*a_num
+    if k.text()=="4":
+        p=a_num*a_num*a_num*a_num
+    if k.text()=="5":
+        p=a_num*a_num*a_num*a_num*a_num
+    if k.text()=="6":
+        p=a_num*a_num*a_num*a_num*a_num*a_num
+    if k.text()=="7":
+        p=a_num*a_num*a_num*a_num*a_num*a_num*a_num
+    if k.text()=="8":
+        p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+    if k.text()=="9":
+        p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+    if k.text()=="10":
+        p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+    window1 = QMessageBox()
+    window1.setText(str(p))
+    window1.exec_()
+
+layout_c = QVBoxLayout()
+layout_c.addWidget(AnsGroupBox)
+
+layout_li = QVBoxLayout()
+layout_li.addWidget(AnsGroupBox, alignment = Qt.AlignCenter)
+
+layout_li2 = QHBoxLayout()
+layout_li2.addWidget(lb_Result, alignment= Qt.AlignRight | Qt.AlignTop )
+layout_li2.addWidget(lb_Correct, alignment= Qt.AlignLeft | Qt.AlignTop)
+
+
+layout_c.addLayout(layout_li)
+layout_c.addLayout(layout_li2)
+
+layout_car = QVBoxLayout()
+layout_car.addWidget(NameProgram)
+
+layout_lin1 = QVBoxLayout()
+layout_lin1.addWidget(NameProgram, alignment = Qt.AlignCenter)
+
+layout_lin2 = QHBoxLayout()
+layout_lin2.addWidget(text_5, alignment= Qt.AlignCenter)
+layout_lin2.addWidget(f, alignment=Qt.AlignLeft)
+
+layout_lin3 = QHBoxLayout()
+layout_lin3.addWidget(text_4, alignment= Qt.AlignLeft)
+layout_lin3.addWidget(k, alignment= Qt.AlignRight)
+
+layout_lin5 = QHBoxLayout()
+layout_lin5.addWidget(Ravn, alignment= Qt.AlignCenter)
+
+layout_car.addLayout(layout_lin1)
+layout_car.addLayout(layout_lin2)
+layout_car.addLayout(layout_lin3)
+layout_car.addLayout(layout_lin5)
+
+
+
+def button_10():
+    wind.close()
+    window.show()
+
+def button_20():
+    wind.close()
+    windo.show()
+
+lb_Correct.clicked.connect(button_10)
+lb_Result.clicked.connect(button_20)
+Ravn.clicked.connect(Ravv)
+window.setLayout(layout_card)
+windo.setLayout(layout_car)
+wind.setLayout(layout_c)
+wind.show()
+Ravno.clicked.connect(Ravno1)
+app.exec_()
