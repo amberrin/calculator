@@ -15,7 +15,7 @@ window = QWidget()
 window.setWindowTitle("Calculator")
 window.resize(225, 300)
 
-AnsGroupBox = QLabel("Треба нажати на кнопку дії, яку ви хочите виконати")
+AnsGroupBox = QLabel("Треба нажати на кнопку,  дії яку ви хочите виконати")
 AnsGroupBox.setStyleSheet("font-size:14px;text-align:center;")
 lb_Result = QPushButton("Звести до степеня")
 lb_Result.setStyleSheet("font-size:16px")
