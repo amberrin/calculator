@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import *
 app = QApplication([])
 
 wind = QWidget()
-wind.setWindowTitle("Вибір")
+wind.setWindowTitle("Меню")
 wind.resize(225, 300)
 
 windo = QWidget()
@@ -15,7 +15,7 @@ window = QWidget()
 window.setWindowTitle("Calculator")
 window.resize(225, 300)
 
-AnsGroupBox = QLabel("Треба нажати на кнопку,  дії яку ви хочите виконати")
+AnsGroupBox = QLabel("Треба нажати на кнопку дії, яку ви хочите виконати")
 AnsGroupBox.setStyleSheet("font-size:14px;text-align:center;")
 lb_Result = QPushButton("Звести до степеня")
 lb_Result.setStyleSheet("font-size:16px")
@@ -33,6 +33,7 @@ b = QLineEdit()
 c = QLineEdit()
 Ravno = QPushButton("Розрахувати")
 
+
 NameProgram = QLabel("Треба ввести числа щоб звести до степеня")
 NameProgram.setStyleSheet("font-size:12px;text-align:center;")
 text_5 = QLabel("Введіть перше число:")
@@ -44,8 +45,12 @@ Ravn = QPushButton("Розрахувати")
 window.hide()
 windo.hide()
 
+
+
 layout_card = QVBoxLayout()
 layout_card.addWidget(NameProgramm)
+
+
 
 layout_line1 = QVBoxLayout()
 layout_line1.addWidget(NameProgramm, alignment = Qt.AlignCenter)
@@ -87,6 +92,32 @@ def Ravno1():
     window1.setText(str(p))
     window1.exec_()
 
+def Ravno1():
+    if b.text() == "return":
+        a_num = (a.text())     
+        c_num=(c.text())
+        window.hide()
+        windo.hide()
+        wind.show()
+        window.hide()
+        windo.hide()
+    else:
+        a_num = int(a.text())     
+        c_num=int(c.text())
+        if b.text()=="+":
+            p=a_num+c_num
+        if b.text()=="-":
+            p=a_num-c_num
+        if b.text()=="/":
+            p=a_num/c_num
+        if b.text()==":":
+            p=a_num/c_num
+        if b.text()=="*":
+            p=a_num*c_num
+        window1 = QMessageBox()
+        window1.setText(str(p))
+        window1.exec_()
+
 def Ravv():
     a_num = int(f.text())     
     if k.text()=="2":
@@ -110,6 +141,39 @@ def Ravv():
     window1 = QMessageBox()
     window1.setText(str(p))
     window1.exec_()
+
+def Ravv():
+    if k.text() == "return":
+        a_num = (f.text())     
+        window.hide()
+        windo.hide()
+        wind.show()
+        window.hide()
+        windo.hide()
+    else:
+        a_num = int(f.text())     
+        if k.text()=="2":
+            p=a_num*a_num
+        if k.text()=="3":
+            p=a_num*a_num*a_num
+        if k.text()=="4":
+            p=a_num*a_num*a_num*a_num
+        if k.text()=="5":
+            p=a_num*a_num*a_num*a_num*a_num
+        if k.text()=="6":
+            p=a_num*a_num*a_num*a_num*a_num*a_num
+        if k.text()=="7":
+            p=a_num*a_num*a_num*a_num*a_num*a_num*a_num
+        if k.text()=="8":
+            p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+        if k.text()=="9":
+            p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+        if k.text()=="10":
+            p=a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num*a_num
+        window1 = QMessageBox()
+        window1.setText(str(p))
+        window1.exec_()
+
 
 layout_c = QVBoxLayout()
 layout_c.addWidget(AnsGroupBox)
